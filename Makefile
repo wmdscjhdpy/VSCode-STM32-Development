@@ -66,6 +66,7 @@ startup_stm32f405xx.s
 #######################################
 # binaries
 #######################################
+GCC_PATH = /opt/gcc-arm-none-eabi-8-2018-q4-major/bin
 PREFIX = arm-none-eabi-
 # The gcc compiler bin path can be either defined in make command via GCC_PATH variable (> make GCC_PATH=xxx)
 # either it can be added to the PATH environment variable.
@@ -197,12 +198,12 @@ $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR)
 
 #ASM
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
-	@echo "compiling" $<
+	@echo "assemblering" $<
 	@$(AS) -c $(CFLAGS) $< -o $@
 
 #ELF
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
-	@echo "building" $<
+	@echo "Linking" $<
 	@$(CPP) $(OBJECTS) $(LDFLAGS) -o $@
 	@$(SZ) $@
 

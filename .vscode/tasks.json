@@ -11,12 +11,17 @@
             "group": "build",
             "presentation": {
                 "reveal": "always"
-            },
+            }
         },        
         {
             "label": "Flash",
             "type": "shell",
-            "command": "JLinkExe",
+            "linux": {
+                "command": "JLinkExe"
+            },
+            "windows": {
+                "command": "/mnt/c/Program Files (x86)/SEGGER/JLink_V634g/JLink.exe"
+            },
             "args": [
                 "-device","STM32F405RG",
                 "-Speed","auto",

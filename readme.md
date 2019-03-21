@@ -31,4 +31,5 @@
 
 ## 当前还未解决的问题
 1. 在windows端下的18.04子系统的apt内的arm-none-eabi-gcc不能够进行链接，链接会出现问题，因此需要自行下载最新的编译器
+2. 如果之前使用的是Keil生成的代码，并且使用了FreeRTOS，那么切换到arm-none-eabi-gcc编译时会缺失部分gcc专用文件，解决办法：使用STM32CubeMX以makefile形式重新生成一次代码
 2. 欢迎提交issue反馈问题
