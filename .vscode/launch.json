@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "gnu-debugger",
+        "request": "launch",
+        "name": "GNU debugger",
+        "program": "${workspaceRoot}/build/STM32Target.elf",
+        "client": "arm-none-eabi-gdb",
+        "linux": {
+          "toolchain": "/opt/gcc-arm-none-eabi-8-2018-q4-major/bin/",
+          "server": "JLinkGDBServer",
+        },
+        "windows": {
+          //Windows下版本号很可能不一样，记得在此处修改自己的GDBServer路径
+          "server": "C:\\Program Files (x86)\\SEGGER\\JLink_V634g/JLinkGDBServerCL.exe",
+        },
+        "serverArgs": [
+          "-device", "STM32F405RG",
+          "-if", "SWD",
+          "-speed", "auto"
+        ],
+        "serverPort": 2331,
+        "customVariables": [
+          "port0",
+          "port1",
+          "port2",
+        ],
+        "autoRun": false,
+        "debugOutput": false,
+        "preLaunchTask": "Flash",
+      }
+    ]
+  }

@@ -1,0 +1,4 @@
+h
+loadbin ./build/STM32Target.hex 0x08000000
+g
+qc

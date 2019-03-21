@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "all"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "always"
+            },
+        },        
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "JLinkExe",
+            "args": [
+                "-device","STM32F405RG",
+                "-Speed","auto",
+                "-if","SWD",
+                "-CommanderScript","flash.jlink"
+            ],
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "clean",
+            "command": "make",
+            "args": ["clean"],
+            "type": "shell"
+        }
+    ]
+}
